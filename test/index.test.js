@@ -25,6 +25,14 @@ vows.describe("General Module Tests").addBatch({
     "we should get back a 200" : function (error, response, body) {
       assert.equal(response.statusCode, 200);
     }
+  },
+  "when making a request to check an unavailable .io TLD such as done.io" : {
+    topic : function() {
+      io.check("done.io", this.callback);
+    },
+    "we should get back data" : function(registered) {
+      assert.notEqual(registered, null);
+    }
   }
 }).export(module);
 
