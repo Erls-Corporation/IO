@@ -1,5 +1,6 @@
 
 // MODULES
+var checked = 0;
 var fs = require("fs");
 var io = require("../lib/io");
 
@@ -15,6 +16,8 @@ for (var i = 0; i < array.length; i++) {
 // CHECK INDIVIDUAL
 function check(word) {
   io.check(word, function(registered) {
+    checked++;
+    console.log("checked:", checked);
     if (registered === false) {
       console.log("DOMAIN AVAILABLE:", word);
     };
