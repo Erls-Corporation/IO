@@ -1,16 +1,24 @@
 
 // MODULES
-var vows = require("vows");
-var assert = require("assert");
-var should = require("should");
-var request = require("request");
+var fs = require("fs");
+var io = require("../lib/io");
 
-// CORE
-var io = require("../lib/io")
+// LOAD WORDLIST
+var array = fs.readFileSync(__dirname + "/threeletterwords.txt").toString().split("\n");
 
-// BULK
-io.check("done.io", function(registered) {
-  console.log("Registered:", registered);
-});
+// BULK CHECK
+for (var i = 0; i < array.length; i++) {
+  var word = array[i];
+  check(word);
+};
+
+// CHECK INDIVIDUAL
+function check(word) {
+  io.check(word, function(registered) {
+    if (registered === false) {
+      console.log("DOMAIN AVAILABLE:", word);
+    };
+  });
+};
 
 /* EOF */
