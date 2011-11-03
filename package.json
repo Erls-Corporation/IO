@@ -1,22 +1,22 @@
 {
-    "author": "Edward Hotchkiss <e@ingk.com>",
-    "name": "io",
-    "description": "Rapid Testing of available/unavailable .IO TLDs w/ WordLists",
-    "version": "0.0.1",
-    "repository": {
-      "type": "git",
-      "url": "git://github.com/edwardhotchkiss/io.git"
-    },
-    "keywords": ["io", ".io", "register", "registrar", "bulk"],
-    "main": "./index",
-    "engines": {
-      "node": "~v0.4.11"
-    },
-    "dependencies": {
-      "request" : ""
-    },
-    "devDependencies" : {
-      "vows":"",
-      "should":""
-    }
+  "author": "Edward Hotchkiss <e@ingk.com>",
+  "name": "io",
+  "description": "Rapid Testing of available/unavailable .IO TLDs w/ WordLists",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/edwardhotchkiss/io.git"
+  },
+  "keywords": ["io", ".io", "register", "registrar", "bulk"],
+  "main": "./lib/io",
+  "engines": {
+    "node": "~v0.4.11"
+  },
+  "dependencies": {
+    "request" : ""
+  },
+  "devDependencies" : {
+    "vows" : "",
+    "should" : ""
+  }
 }
