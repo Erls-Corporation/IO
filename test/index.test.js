@@ -30,10 +30,20 @@ vows.describe("General Module Tests").addBatch({
     topic : function() {
       io.check("done.io", this.callback);
     },
-    "we should get back data" : function(registered) {
+    "we should get back data, and the domain should show as registered" : function(registered) {
       assert.notEqual(registered, null);
+      assert.equal(registered, true);
     }
-  }
+  },
+  "when making a request to check a random definitively available .io TLD" : {
+    topic : function() {
+      io.check("zzzzzzzzzz12345.io", this.callback);
+    },
+    "we should get back data, and the domain should show as NOT registered" : function(registered) {
+      assert.notEqual(registered, null);
+      assert.equal(registered, false);
+    }
+  },
 }).export(module);
 
 /* EOF */
