@@ -3,7 +3,8 @@
 var checked = 0;
 var available = [];
 
-// CORE MODULES
+// MODULES
+var fs = require("fs");
 var io = require("../lib/io");
 
 // GENERATE RANDOM CHARACTERS
