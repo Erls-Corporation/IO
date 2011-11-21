@@ -6,13 +6,13 @@ var should = require("should");
 var request = require("request");
 
 // CORE
-var io = require("../lib/io")
+var IO = require("../lib/IO");
 
 // VOWS!
 vows.describe("General Module Tests").addBatch({
-  "when instantiating short" : {
+  "when instantiating IO" : {
     topic : function() { 
-      return io;
+      return IO;
     },
     "io should be a function" : function(topic) {
       topic.should.be.a("function");
@@ -28,7 +28,7 @@ vows.describe("General Module Tests").addBatch({
   },
   "when making a request to check an unavailable .io TLD such as done.io" : {
     topic : function() {
-      io.check("done.io", this.callback);
+      IO.check("done.io", this.callback);
     },
     "we should get back data, and the domain should show as registered" : function(registered) {
       assert.notEqual(registered, null);
@@ -37,7 +37,7 @@ vows.describe("General Module Tests").addBatch({
   },
   "when making a request to check a random definitively available .io TLD" : {
     topic : function() {
-      io.check("zzzzzzzzzz12345.io", this.callback);
+      IO.check("zzzzzzzzzz12345.io", this.callback);
     },
     "we should get back data, and the domain should show as NOT registered" : function(registered) {
       assert.notEqual(registered, null);
